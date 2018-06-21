@@ -89,7 +89,7 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="#">home</a></li>
+				<li class="menu_mm"><a href="#">Home</a></li>
 				<li class="menu_mm"><a href="#">Categorias</a></li>
 				<li class="menu_mm"><a href="#">Editoras</a></li>
 				<li class="menu_mm"><a href="#">Autores</a></li>
