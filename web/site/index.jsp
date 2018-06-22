@@ -7,7 +7,8 @@
     List<Livro> lista = ldao.listar();
     
     ldao.fecharConexao();
-       
+    
+    
 %>
 
 
@@ -41,12 +42,12 @@
 						</div>
 						<div class="product_content clearfix">
 							<div class="product_info">
-								<div class="product_name"><a href="product.html"><%=livro.getNome()%></a></div>
+								<div class="product_name"><%=livro.getNome()%></div>
 								<div class="product_price"><%=livro.getPreco()%></div>
 							</div>
 							<div class="product_options">
 								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
-								<div class="product_fav product_option">+</div>
+                                                                <div class="product_fav product_option">+<a href="product.html"></a></div>
 							</div>
                                                     
                                                      

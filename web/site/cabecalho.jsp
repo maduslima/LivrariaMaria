@@ -1,3 +1,10 @@
+<%@page import="modelo.Categoria"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.CategoriaDAO"%>
+<%
+    CategoriaDAO cdao = new CategoriaDAO();
+    List<Categoria> clista = cdao.listar();
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
