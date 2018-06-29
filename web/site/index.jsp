@@ -47,7 +47,7 @@
 							</div>
 							<div class="product_options">
 								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
-                                                                <div class="product_fav product_option">+<a href="product.html"></a></div>
+                                                                <div class="product_fav product_option">+<a href="product.jsp?codigo=<%=livro.getId()%>"></a></div>
 							</div>
                                                     
                                                      
