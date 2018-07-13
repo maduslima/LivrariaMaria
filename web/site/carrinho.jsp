@@ -1,4 +1,33 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.Compralivro"%>
+<%@page import="modelo.Livro"%>
+<%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp"%>
+<%
+if(request.getParameter("id")==null){
+    response.sendRedirect("index.jsp");
+    return;
+}
+
+Integer id= Integer.parseInt(request.getParameter("id"));
+LivroDAO dao = new LivroDAO();
+Livro l = dao.buscarPorChavePrimaria(id);
+List<Compralivro> carrinho;
+Compralivro cl = new Compralivro();
+cl.setLivro(l);
+cl.setValorunitario(l.getPreco());
+if(session.getAttribute("carrinho")!=null)
+{
+    carrinho = (List<Compralivro>)session.getAttribute("carrinho");
+    carrinho.add(cl);
+}
+else
+{
+    carrinho = new ArrayList<Compralivro>();
+    carrinho.add(cl);
+}
+session.setAttribute("carrinho", carrinho);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

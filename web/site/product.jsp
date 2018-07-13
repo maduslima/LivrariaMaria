@@ -1,3 +1,4 @@
+<%@page import="modelo.Compralivro"%>
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp"%>
@@ -136,6 +137,9 @@
 		</div>
 	</div>
 
+        <% for(Compralivro obj : carrinho){
+            
+        %>
 	<!-- Product -->
 
 	<div class="product">
@@ -168,8 +172,8 @@
 				<!-- Product Content -->
 				<div class="col-lg-5">
 					<div class="product_content">
-						<div class="product_name">2 Piece Swimsuit</div>
-						<div class="product_price">$35.00</div>
+						<div class="product_name"><%=obj.getLivro().getNome()%></div>
+						<div class="product_price"><%=obj.getLivro().getPreco()%></div>
 						<div class="rating rating_4" data-rating="4">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -227,12 +231,12 @@
 									</li>
 								</ul>
 							</div>
-							<div class="button cart_button"><a href="#">add to cart</a></div>
+							<div class="button cart_button"><a href="carrinho.jsp">add to cart</a></div>
 						</div>
 					</div>
 				</div>
 			</div>
-
+                        <%}%>
 			<!-- Reviews -->
 
 			<div class="row">
