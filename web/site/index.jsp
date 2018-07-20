@@ -3,16 +3,28 @@
 <%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp"%>
 <%
-    LivroDAO ldao = new LivroDAO();
-    List<Livro> lista = ldao.listar();
+    LivroDAO dao = new LivroDAO();
+    List<Livro> lista;
+    //se é para filtrar por categoria
+    if(request.getParameter("categoriaid")!=null){
+        
+        Integer id = 
+                Integer.parseInt(request.getParameter("categoriaid"));
+        Categoria c = cdao.buscarPorChavePrimaria(id);
+        lista = c.getLivroList();
+    }
+    else{
+        lista = dao.listar();
+    }
+   
+    dao.fecharConexao();
     
-    ldao.fecharConexao();
-    
+       
     
 %>
 
-
-	<!-- New Arrivals -->
+ 
+	<!-- Destaques -->
 
 	<div class="arrivals">
 		<div class="container">
@@ -26,8 +38,9 @@
 			</div>
 			<div class="row products_container">
 
-				<!-- Product -->
-                                <%for(Livro livro:lista){%>
+				<!-- Início Livros -->
+                                <%for(Livro livro:lista){
+                                %>
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
@@ -46,7 +59,7 @@
 								<div class="product_price"><%=livro.getPreco()%></div>
 							</div>
 							<div class="product_options">
-								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
+								
                                                                 <div class="product_fav product_option">+<a href="product.jsp?codigo=<%=livro.getId()%>"></a></div>
 							</div>
                                                     
@@ -55,7 +68,7 @@
 					</div>
 				</div>
                                 <%}%>                        
-				
+				<!--Fim do livro -->
 
 			</div>
 		</div>

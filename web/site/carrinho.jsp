@@ -232,14 +232,7 @@ session.setAttribute("carrinho", carrinho);
 					<div class="cart_total">
 						<div class="cart_title">cart total</div>
 						<ul>
-							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Subtotal</div>
-								<div class="cart_total_price ml-auto">$35.00</div>
-							</li>
-							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Shipping</div>
-								<div class="cart_total_price ml-auto">$5.00</div>
-							</li>
+							
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="cart_total_title">Total</div>
 								<div class="cart_total_price ml-auto">$40.00</div>

@@ -1,3 +1,4 @@
+<%@page import="modelo.Autor"%>
 <%@page import="modelo.Compralivro"%>
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
@@ -34,63 +35,7 @@
 
 <div class="super_container">
 	
-	<!-- Header -->
-
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="#">Livraria Maria</a></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="index.html">home</a></li>
-					<li><a href="categories.html">Categorias</a></li>
-					<li><a href="categories.html">Autores</a></li>
-					<li><a href="categories.html">Editoras</a></li>
-					<li><a href="contact.html">Livros</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required">
-						<button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
-				<div class="shopping">
-					<!-- Cart -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-							<div class="cart_num_container">
-								<div class="cart_num_inner">
-									<div class="cart_num">1</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<!-- Star -->
-					<a href="#">
-						<div class="star">
-							<img src="images/star.svg" alt="">
-							<div class="star_num_container">
-								<div class="star_num_inner">
-									<div class="star_num">0</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<!-- Avatar -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-				</div>
-			</div>
-
-			<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
-		</div>
-	</header>
-
+	
 	<!-- Menu -->
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
@@ -137,9 +82,7 @@
 		</div>
 	</div>
 
-        <% for(Compralivro obj : carrinho){
-            
-        %>
+       
 	<!-- Product -->
 
 	<div class="product">
@@ -172,71 +115,28 @@
 				<!-- Product Content -->
 				<div class="col-lg-5">
 					<div class="product_content">
-						<div class="product_name"><%=obj.getLivro().getNome()%></div>
-						<div class="product_price"><%=obj.getLivro().getPreco()%></div>
-						<div class="rating rating_4" data-rating="4">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
+						<div class="product_name"><%=obj.getNome()%></div>
+						<div class="product_price"> R$ <%=obj.getPreco()%></div>
+                                                <div class="product_name"><%=obj.getEditora()%></div>
+                                                <div class="product_name"><%=obj.getCategoria()%></div>
+                                                <div class="product_name">Autores 
+                                                    <%
+                                                        for(Autor a: obj.getAutorList()){
+                                                    %>
+                                                    <a href="detalheautor?id=<%=a.getId()%>"><%=a.getNome()%></a>
+                                                    <%
+                                                        }
+                                                    %>
+                                                    
+                                                 <div class="rating rating_4" data-rating="4">
+							
 						</div>
-                                                
-                                                
-                                                
-                                                
-						<!-- In Stock -->
-						<div class="in_stock_container">
-							<div class="in_stock in_stock_true"></div>
-							<span>in stock</span>
-						</div>
-						<div class="product_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis quam ipsum. Pellentesque consequat tellus non tortor tempus, id egestas elit iaculis. Proin eu dui porta, pretium metus vitae, pharetra odio. Sed ac mi commodo, pellentesque erat eget, accumsan justo. Etiam sed placerat felis. Proin non rutrum ligula.</p>
-						</div>
-						<!-- Product Quantity -->
-						<div class="product_quantity_container">
-							<span>Quantity</span>
-							<div class="product_quantity clearfix">
-								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-								<div class="quantity_buttons">
-									<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
-								</div>
-							</div>
-						</div>
-						<!-- Product Size -->
-						<div class="product_size_container">
-							<span>Size</span>
-							<div class="product_size">
-								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li>
-										<input type="radio" id="radio_1" name="product_radio" class="regular_radio radio_1">
-										<label for="radio_1">XS</label>
-									</li>
-									<li>
-										<input type="radio" id="radio_2" name="product_radio" class="regular_radio radio_2" checked>
-										<label for="radio_2">S</label>
-									</li>
-									<li>
-										<input type="radio" id="radio_3" name="product_radio" class="regular_radio radio_3">
-										<label for="radio_3">M</label>
-									</li>
-									<li>
-										<input type="radio" id="radio_4" name="product_radio" class="regular_radio radio_4">
-										<label for="radio_4">L</label>
-									</li>
-									<li>
-										<input type="radio" id="radio_5" name="product_radio" class="regular_radio radio_5">
-										<label for="radio_5">XL</label>
-									</li>
-								</ul>
-							</div>
-							<div class="button cart_button"><a href="carrinho.jsp">add to cart</a></div>
-						</div>
+                                                   
+                                              
 					</div>
 				</div>
 			</div>
-                        <%}%>
+                       
 			<!-- Reviews -->
 
 			<div class="row">
