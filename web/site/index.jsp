@@ -9,7 +9,7 @@
     if(request.getParameter("categoriaid")!=null){
         
         Integer id = 
-                Integer.parseInt(request.getParameter("categoriaid"));
+        Integer.parseInt(request.getParameter("categoriaid"));
         Categoria c = cdao.buscarPorChavePrimaria(id);
         lista = c.getLivroList();
     }
@@ -60,7 +60,7 @@
 							</div>
 							<div class="product_options">
 								
-                                                                <div class="product_fav product_option">+<a href="product.jsp?codigo=<%=livro.getId()%>"></a></div>
+                                                                <div class="product_fav product_option"><a href="product.jsp?id=<%=livro.getId()%>">Detalhes</a></div>
 							</div>
                                                     
                                                      
