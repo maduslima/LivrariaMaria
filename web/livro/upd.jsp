@@ -43,13 +43,12 @@
             obj.setFoto1(request.getParameter("txtFoto"));
             obj.setFoto2(request.getParameter("txtFoto2"));
             obj.setFoto3(request.getParameter("txtFoto3"));
-            
             List<Autor> listaautores = new ArrayList<>();
             for (String id : autoresid) {
                 Integer idinteger = Integer.parseInt(id);
                 listaautores.add(adao.buscarPorChavePrimaria(idinteger));
-
             }
+                      
 
     } 
     else {

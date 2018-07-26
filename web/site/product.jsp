@@ -92,7 +92,7 @@
                                                         }
                                                     %>
                                                     
-                                               <div class="button cart_button"><a href="carrinho.jsp?id=<%=obj.getId()%>">add to cart</a></div>
+                                               <div class="button cart_button"><a href="carrinho.jsp?id=<%=obj.getId()%>">AddCarrinho</a></div>
 							
 						</div>
                                                    

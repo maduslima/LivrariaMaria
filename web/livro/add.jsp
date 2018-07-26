@@ -110,7 +110,7 @@
                         <input class="form-control" type="text"  name="txtNome"  required />
                     </div>
                     <div class="form-group">
-                        <label>Preco: </label>
+                        <label>Preço: </label>
                         <input class="form-control" type="text"  name="txtPreco"  required />
                     </div>
                     <div class="form-group">
